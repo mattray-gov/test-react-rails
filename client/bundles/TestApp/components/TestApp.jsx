@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import store from "../store/testAppStore"
 import Banner from "./Banner";
 import { getBanners } from "../utils/API";
 
@@ -12,7 +14,7 @@ const TestApp = () => {
     })
 
     return (
-        <React.Fragment>
+        <Provider store={store}>
             {banners &&
                 banners.map((banner, i) => {
                     if (banner.isOn) {
@@ -26,7 +28,7 @@ const TestApp = () => {
             <div>
                 Welcome to the test app
             </div>
-        </React.Fragment>
+        </Provider>
     )
 }
 
