@@ -18,13 +18,13 @@ export const bannersSlice = createSlice({
     },
     reducers: {
         switchVBMS: (state) => {
-            state.vbms.isOn = state.vbms.isOn !== true;
+            state.vbms.isOn = !state.vbms.isOn 
         },
         switchBGS: (state) => {
-            state.bgs.isOn = state.bgs.isOn !== true;
+            state.bgs.isOn = !state.bgs.isOn 
         },
         switchVACOLS: (state) => {
-            state.vacols.isOn = state.vacols.isOn !== true;
+            state.vacols.isOn = !state.vacols.isOn 
         },
     },
 })

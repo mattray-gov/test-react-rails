@@ -1,33 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Provider } from "react-redux";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Switch
+} from "react-router-dom";
 import store from "../store/testAppStore"
-import Banner from "./Banner";
-import { getBanners } from "../utils/API";
+import AdminPage from "./AdminPage";
+import Home from "./Home";
+
+
 
 const TestApp = () => {
-    const [banners, setBanners] = useState()
 
-    useEffect(() => {
-        if (!banners) {
-            getBanners(setBanners)
-        }
-    })
 
     return (
         <Provider store={store}>
-            {banners &&
-                banners.map((banner, i) => {
-                    if (banner.isOn) {
-                        return (
-                            <Banner key={i} message={banner.message} />
-                        )
-                    }
-                })}
-            
-            <h1>Test App</h1>
-            <div>
-                Welcome to the test app
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                </Routes>
+            </BrowserRouter>
         </Provider>
     )
 }
