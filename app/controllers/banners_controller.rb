@@ -6,6 +6,7 @@ class BannersController < ApplicationController
   # GET /banners or /banners.json
   def index
     @banners = Banner.all
+    render json: @banners
   end
 
   # GET /banners/1 or /banners/1.json
