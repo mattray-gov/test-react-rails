@@ -5,20 +5,20 @@ import { switchVBMS, switchBGS, switchVACOLS } from "../reducers/testAppReducer"
 
 const AdminPage = () => {
     const dispatch = useDispatch()
-    var bannerData = useSelector((state) => state.banners)
+    var {vbms, bgs, vacols} = useSelector((state) => state.banners)
 
     return (
         <div>
             <h1>Admin Page</h1>
             <button
                 onClick={() => dispatch(switchVBMS())}
-            > VBMS</button>
+            > VBMS is <span>{vbms.isOn ? "on" : "off"}</span></button>
             <button
                 onClick={() => dispatch(switchBGS())}
-            > BGS</button>
+            > BGS is <span>{bgs.isOn ? "on" : "off"}</span></button>
             <button
                 onClick={() => dispatch(switchVACOLS())}
-            > VACOLS</button>
+            > VACOLS is <span>{vacols.isOn ? "on" : "off"}</span></button>
             <Link to="/">Go home</Link>
         </div>
 
